@@ -4,7 +4,7 @@ using WebApp1.Models;
 
 namespace WebApp1.Controllers
 {
-    [ApiController]
+   [ApiController]
     [Route("[controller]")]
     public class HomeController : ControllerBase
     {
@@ -15,21 +15,27 @@ namespace WebApp1.Controllers
             _logger = logger;
         }
 
-        [HttpGet("getAllMovies")]
+        [HttpGet("getMovieById")]
         public IActionResult Get(long id)
         {
+            var token = HttpContext.Session.GetString("token");
             var client = new RestClient();
             var request = new RestRequest($"http://localhost:8080/home/movie/{id}", Method.Get);
+            request.AddHeader("token", token);
+            _logger.LogInformation("requesting movie");
             var response = client.Execute(request);
             return Ok(response.Content);
         }
 
         [HttpPost("postMovie")]
         public IActionResult Post(Movie movie)
-        {   
+        {
+            var token = HttpContext.Session.GetString("token");
             var client = new RestClient();
             var request = new RestRequest($"http://localhost:8080/home/addMovie/{movie.Id}", Method.Post);
+            request.AddHeader("token", token);
             request.AddJsonBody(movie);
+            _logger.LogInformation("inserting movie");
             var response = client.Execute(request);
             return Ok(response.StatusCode);
         }

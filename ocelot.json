@@ -1,0 +1,85 @@
+﻿//{
+//  "Routes": [
+
+//    {
+//      "DownstreamPathTemplate": "/register",
+//      "DownstreamScheme": "http",
+//      "DownstreamHostAndPorts": [
+//        {
+//          "Host": "localhost",
+//          "Port": 8081
+//        }
+//      ],
+//      "UpstreamPathTemplate": "/user/register",
+//      "UpstreamHttpMethod": [ "Post" ]
+//    },
+//    {
+//      "DownstreamPathTemplate": "/login",
+//      "DownstreamScheme": "http",
+//      "DownstreamHostAndPorts": [
+//        {
+//          "Host": "localhost",
+//          "Port": 8081
+//        }
+//      ],
+//      "UpstreamPathTemplate": "/user/login",
+//      "UpstreamHttpMethod": [ "Post" ]
+//    },
+
+//    {
+//      "DownstreamPathTemplate": "/movie/{id}",
+//      "DownstreamScheme": "http",
+//      "DownstreamHostAndPorts": [
+//        {
+//          "Host": "localhost",
+//          "Port": 8080
+//        },
+//        {
+//          "Host": "localhost",
+//          "Port": 8082
+//        }
+//      ],
+//      "UpstreamPathTemplate": "/home/getMovieById/{id}",
+//      "UpstreamHttpMethod": [ "Get" ]
+//    },
+//    {
+//      "DownstreamPathTemplate": "/movie/{id}",
+//      "DownstreamScheme": "http",
+//      "DownstreamHostAndPorts": [
+//        {
+//          "Host": "localhost",
+//          "Port": 8080
+//        },
+//        {
+//          "Host": "localhost",
+//          "Port": 8082
+//        }
+//      ],
+//      "UpstreamPathTemplate": "/home/getMovieById/{id}",
+//      "LoadBalancerOptions": {
+//        "Type": "RoundRobin"
+//      },
+//      "UpstreamHttpMethod": [ "Get" ]
+//    },
+//    {
+//      "DownstreamPathTemplate": "/addMovie/{id}",
+//      "DownstreamScheme": "http",
+//      "DownstreamHostAndPorts": [
+//        {
+//          "Host": "localhost",
+//          "Port": 8080
+//        },
+//        {
+//          "Host": "localhost",
+//          "Port": 8082
+//        }
+//      ],
+//      "UpstreamPathTemplate": "/home/postMovie/{id}",
+//      "LoadBalancerOptions": {
+//        "Type": "RoundRobin"
+//      },
+//      "UpstreamHttpMethod": [ "Post" ]
+//    }
+
+//  ]
+//}
