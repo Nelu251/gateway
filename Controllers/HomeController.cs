@@ -20,7 +20,7 @@ namespace WebApp1.Controllers
         {
             var token = HttpContext.Session.GetString("token");
             var client = new RestClient();
-            var request = new RestRequest($"http://localhost:8080/home/movie/{id}", Method.Get);
+            var request = new RestRequest($"http://movies-service:8080/home/movie/{id}", Method.Get);
             request.AddHeader("token", token);
             _logger.LogInformation("requesting movie");
             var response = client.Execute(request);
@@ -32,7 +32,7 @@ namespace WebApp1.Controllers
         {
             var token = HttpContext.Session.GetString("token");
             var client = new RestClient();
-            var request = new RestRequest($"http://localhost:8080/home/addMovie/{movie.Id}", Method.Post);
+            var request = new RestRequest($"http://movies-service:8080/home/addMovie/{movie.Id}", Method.Post);
             request.AddHeader("token", token);
             request.AddJsonBody(movie);
             _logger.LogInformation("inserting movie");
